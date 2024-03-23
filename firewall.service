@@ -1,0 +1,13 @@
+[Unit]
+Description=Inicializa o script firewall automaticamente.
+After=network.target
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/sbin/firewall.sh start
+ExecStop=/usr/local/sbin/firewall.sh stop
+RemainAfterExit=true
+KillMode=process
